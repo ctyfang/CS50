@@ -1,0 +1,20 @@
+questions.txt
+
+Computer Science 50
+Problem Set 3
+
+0. Apart from the standard 4x4 dimensions of The Game of Fifteen, the 
+    framework allows for symmetrical dimensions ranging from 3x3 to 9x9.
+    These boundaries are apparent from the defined variables DIM_MIN
+    and DIM_MAX, as well as the error-checking if-statement currently
+    in place. On line 53, the user's input is checked for compliance
+    with these boundaries.
+    
+1. A global matrix of integers is used to represent the game board.
+    This is defined by "int board[DIM_MAX][DIM_MAX];".
+
+2. Upon executing the object file, the framework calls the greet function.
+    This function simply says welcome and stalls for two seconds.
+    
+3. init, draw, move and won still need to be implemented for the game
+    to achieve full functionality.

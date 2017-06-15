@@ -1,0 +1,50 @@
+0.  TODO
+1.  getrusage tracks resource usage. Depending on the first argument applied to getrusage,
+    it could track resource usage for a calling process, children of a calling process,
+    or an entire thread.
+    
+2.  The struct rusage type has 16 members.
+
+3.  The struct rusage type's members are mostly longs. It would be expensive to allocate
+    that much memory on the stack, only to have it disappear after the calculate function
+    has finished. Hence it is more efficient to pass by reference in this case.
+    
+4.  The top-level forloop scans through the inputted text file, character by character. Upon
+    detecting an alphabetical character, it signals the start of a word using an integer
+    index that simultaneously keeps track of the number of letters currently in the word.
+    Each alphabetical character is stored inside an array of length 46, and all numerical
+    characters are skipped. Hence, "a56bcd", would be stored in the array as, "abcd". This
+    reading process is interrupted by non-alphabetic, non-numeric, and non-apostrophe
+    characters. Hence, a standard text file with words separated by whitespaces would have
+    each word fully stored in the array at some point. Upon being interrupted, the array
+    is cleared and the word is checked for misspellings, and an word counting index is 
+    incremented.
+    
+5.  Using fgetc allows you to be selective about the contents of your string. For instance,
+    the previously mentioned example of "a56bcd" would be stored simply as is, versus the
+    filtered output that fgetc allows us to achieve.
+    
+6.  These are pointers to constants, meaning that although the pointers can switch pointees,
+    they cannot affect their pointee. This makes sense for functions such as check and load
+    as they simply interpret the contents of word[] and dictionary respectively, without
+    altering their contents.
+    
+7.  I used a TRIE. The top-level of my TRIE was an array of node pointers
+    each representing a letter of the alphabet. The array was ordered in
+    such a way to reflect the alphabet as well. If "cat" was to be stored
+    in my TRIE, the third element of my top-level array would point to a
+    node. That node's child would have another ordered array, whose first
+    element would point to a node. And that node's child's twentieth
+    element would point to a node.
+    
+8.  Total run-time, when checking austen.txt was 0.46.
+
+// How'd you make it faster?
+9. Originally, I had trouble setting the array element of the TRIE's root to null, hence I had an if-statement
+   with a "goto" statement that completed this. However, upon reading from various sources that these usage
+   of these statements were generally frowned upon, I replaced the goto statement with a boolean value that
+   allowed me to keep track of whether or not we were freeing a root element. This reduced my run-time by two-
+   thirds, from ~0.45 to ~0.15.
+
+// What bottlenecks were you not able to solve?
+10. TODO

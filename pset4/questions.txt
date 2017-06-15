@@ -1,0 +1,51 @@
+0.  BMP supports over 4 billion, 
+    GIF supports 256, 
+    JPEG and PNG both support over 16 million.
+    
+1.  GIF supports animation
+
+2.  Lossless vs lossy compression describes whether or not all original data can be recovered
+    upon decompression. Lossless as implied in the name restores every single bit. Examples
+    of this can be seen in text and GIF files. Upon decompressing a lossy file,
+    however, certain information is lost, typically redundant information, but you
+    likely will not notice it. Examples of this are seen in sound, video and JPEG.
+    
+3.  JPEG is lossy. When using it, we can even decide how much loss to introduce, and
+    make a trade off between file size and image quality.
+    
+4.  FAT is a file format with four versions, FAT12, FAT16, VFAT, and FAT32.
+    A hard disk is always addressed in 512 byte sectors. A FAT file system
+    further groups these sectors into clusters, which consist of 2^i sectors
+    (where i is set upon formatting).
+    
+    A cluster is either
+    - part of a file, and points to the next cluster for that file
+    - last cluser in a file, holds an EOF value
+    - free or zero
+    - marked defective
+    
+    When a FAT file is erased, first the system modifies the filename's
+    first character in the directory entry. This signals that the file
+    has been deleted and the entry can be recycled. Second, all of 
+    that file's clusters are moved to the free cluster list. The
+    file data isn't even touched, it's simply put into the free list
+    to be overwritten when needed.
+
+5.  To ensure that files I deleted can never be recovered, I can overwrite all of
+    the bytes with random data once or twice. Due to the fact that
+    modern drives lack space between tracks (these rendered data recoverable in
+    the past), this would be sufficient.
+
+6.  TODO
+7.  TODO
+8.  TODO
+9.  TODO
+10. TODO
+11. TODO
+12. TODO
+13. TODO
+14. TODO
+15. TODO
+16. TODO
+17. TODO
+18. TODO
